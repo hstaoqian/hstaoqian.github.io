@@ -1,12 +1,12 @@
 
 <html>
   <head lang="zh">
-         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
         <meta content="yes" name="apple-mobile-web-app-capable"/>
         <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
         <meta content="telephone=no" name="format-detection"/>
         <meta name="renderer" content="webkit">
-    <title>迁头万绪</title>
+    <title>设置 p5js 的开发环境 | 迁头万绪</title>
 <link href="https://hstaoqian.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="https://hstaoqian.github.io/media/scripts/jquery.js"></script>
 <script type="text/javascript" src="https://hstaoqian.github.io/media/scripts/basic.js"></script>
@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <div class="header">
+     <div class="header">
       <div class="logo_title">
 		  
         <div class="title animated fadeInDown"><img src="https://hstaoqian.github.io/images/avatar.png?v=1591023826451"/>
@@ -141,50 +141,120 @@
     </div>
 
 
-
     <div class="main">
       <div class="main-inner">
 
 
 <div class="content">
+
+
+
+
+
+
+  <div class="post_page" >
+
+<div class="post">
+  <div class="post_title sm_margin">
+    <h2><a>设置 p5js 的开发环境</a>
+
+
+
+    </h2>
+  </div>
+
+  <div class="post_details">
+    <div class="info"><i class="fa fa-clock-o"></i>
+<span class="date_info">2020-06-01</span>
+<i class="fa fa-eye"></i>
+
+<span class="date_info"><span id="busuanzi_value_page_pv"></span> Views</span>
+
+
+<i class="fa fa-bookmark-o"></i>
+<span class="tags_info weaklink">
 	
-	
-  <div class="list_with_title">
-
-    <div class="listing_title">2020</div>
-
-	  
-    <div class="listing">
-      <div class="listing-item">
-		  
-                                
-        <div class="listing_post"><a href="https://hstaoqian.github.io/post/she-zhi-p5js-de-kai-fa-huan-jing/"  title="设置 p5js 的开发环境" >设置 p5js 的开发环境</a>
-
-          <div class="post_date"><span class="date">2020-06-01</span>
-
-          </div>
-
-        </div>
- 
-                            
-      </div>
+	<a href="https://hstaoqian.github.io/tag/iH0MhYvdI/" class="tag">p5js</a>
 
 
-		
-		
-		
+</span>
+
+
     </div>
-
 
   </div>
 
+
+
+
+
+  <div class="post_content markdown"><p class="md_block">
+    <span class="md_line md_line_start md_line_end"><p>续篇，怎样用 VSCode 设置 p5js 的本地开发环境</p>
+<!-- more -->
+<h2 id="背景">背景</h2>
+<p>准备开始学习 Nature of Code 这本书，作者正在重新写作本书，以前的版本里用的是 processing 语言，现在准备全部用 p5js 完成。对于用什么语言完成本书我是无所谓的，对于学习了一段时间的编程老鸟来说，好像所有的语言能用就行，我也没有到能够对代码的风格说上喜欢或者不喜欢的地步。</p>
+<p>学习这本书纯粹是被作者在前言里提到的用代码模拟真实世界这个酷酷的概念吸引到了。人越老记性越差，为了以后回忆时还能想到自己做过这个事情，所以准备在博客里记录下学习过程。因为是写过自己看的文章，所以便由着自己的性子记录，唯一不随便的地方便是会学完整本书了。</p>
+<h2 id="准备">准备</h2>
+<ul>
+<li>p5js 有网页版编辑器，但是我不喜欢网页版的风格，代码没有补全，自己还是习惯了 VSCode 的编程习惯，所以准备在VSCode 里完成 p5js 的编写</li>
+<li>根据官网提示，下载完成的 p5 文件夹，放进开发目录里</li>
+<li>p5 文件夹里有一个 <strong>example_template</strong> 的文件夹，用命令行代码 'cp -r example_template .' 的命令复制到开哈目录里使用</li>
+<li>VSCode 也需要一些设置，因为本身并不支持 p5js 这个语言，幸好有热心网友制作了 p5js 的插件</li>
+<li>安装 <strong>p5canvas</strong> 插件，这个插件可以直接在 VSCode 里预览最终效果，推荐</li>
+<li>安装 <strong>p5js snippets</strong> 插件，这个插件有了代码补全的效果，大大减少了打字量，推荐</li>
+<li>接下来可以写个 demo 看看开发环境是否搭建成功</li>
+<li>进入复制的<strong>example_template</strong>，改名为<strong>test_template</strong>，发现文件夹里有两个文件 <strong>sketch.js</strong> 和 <strong>index.html</strong> ，我们的代码在<strong>sketch.js</strong>里完成</li>
+</ul>
+<h2 id="测试开发环境">测试开发环境</h2>
+<pre><code class="language-p5js">function setup() {
+  // put setup code here
+  createCanvas(400, 400);
+}
+
+function draw() {
+  // put drawing code here
+  if (mouseIsPressed) {
+    fill(0);
+  } else {
+    fill(255);
+  }
+  ellipse(mouseX, mouseY, 80, 80);
+}
+</code></pre>
+<p>这段代码是创建了一个宽400， 高400的画布，在画布里移动鼠标会拖动一个圆，这个圆随着鼠标的移动会在画布上留下移动的印记，同时按下鼠标左键移动的话，会留下黑色的拖影。</p>
+<p>如果 VSCode 里出现上面的画面的话，就说明环境搭建成功了。我们也可以正式进入课程了。</p>
+<p>2020/6/1 zz253</p>
+</p>
+
+     <p class="md_block">
+    <div class="reward"><div class="reward-button">赏 <span class="reward-code"> <span class="alipay-code"> <img class="alipay-img" src="https://hstaoqian.github.io/media/images/alipay.png"><b>支付宝扫码打赏</b> </span> <span class="wechat-code"> <img class="wechat-img" src="https://hstaoqian.github.io/media/images/wechat.png"><b>微信打赏</b> </span> </span></div></div>
+</p> 
+</div>
+
+</div>
+
+
+
+<link href="https://hstaoqian.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+
+<div class="doc_comments">
+
+</div>
+
+
+
+  </div>
 </div>
 
 
 
       </div>
 
+
+
+
     </div>
+
    <div class="footer">
 <link href="https://hstaoqian.github.io/styles/main.css" type="text/css" rel="stylesheet"/><div class="site_footer_wrap"><div class="site_footer">
 
@@ -277,7 +347,6 @@ a.back_to_top:hover span {
 })(this));
 </script>
 
- 
 </body>
 
 </html>
